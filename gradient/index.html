@@ -1,0 +1,30 @@
+<!-- include a-frame -->
+<script src="/libs/aframe.min.js"></script>
+
+<!-- include ar.js for aframe -->
+<script src='/libs/aframe-ar.min.js'></script>
+
+<!-- start the body of your page -->
+<body style='margin : 0px; overflow: hidden;'>
+
+	<!-- Define your 3d scene and enabled ar.js -->
+	<a-scene embedded arjs='trackingMethod: best;'>
+
+    <a-assets>
+      <a-asset-item id="olympus-obj" src="models/olympus_mons/model.obj"></a-asset-item>
+      <img id="olympus-tex" src="models/olympus_mons/texture.png">
+    </a-assets>
+
+		<!-- Create a anchor to attach your augmented reality -->
+		<a-anchor hit-testing-enabled='true'>
+
+			<!-- Add your augmented reality here -->
+      <a-obj-model src="#olympus-obj" material="src: #olympus-tex" scale="0.55 0.55 0.55"></a-obj-model>
+
+		</a-anchor>
+
+		<!-- Define a static camera -->
+		<a-camera-static/>
+
+	</a-scene>
+</body>
