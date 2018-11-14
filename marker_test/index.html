@@ -1,0 +1,30 @@
+<!-- include a-frame -->
+<script src="libs/aframe.min.js"></script>
+
+<!-- include ar.js for aframe -->
+<script src='libs/aframe-ar.min.js'></script>
+
+<!-- start the body of your page -->
+<body style='margin : 0px; overflow: hidden;'>
+
+	<!-- Define your 3d scene and enabled ar.js -->
+	<a-scene embedded arjs='trackingMethod: best; debugUIEnabled: false;' vr-mode-ui="enabled: false">
+
+    <a-assets>
+      <a-asset-item id="model-obj" src="models/model.obj"></a-asset-item>
+      <img id="model-tex" src="models/texture.png">
+    </a-assets>
+
+		<!-- Create a anchor to attach your augmented reality -->
+		<a-anchor hit-testing-enabled='true'>
+
+			<!-- Add your augmented reality here -->
+      <a-obj-model src="#model-obj" material="src: #model-tex" scale="1 1 1"></a-obj-model>
+
+		</a-anchor>
+
+		<!-- Define a static camera -->
+		<a-camera-static/>
+
+	</a-scene>
+</body>
